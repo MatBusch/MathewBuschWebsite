@@ -16,11 +16,13 @@
   left: 0;
   z-index: 9999;
 }
+
 #loading-center {
   width: 100%;
   height: 100%;
   position: relative;
 }
+
 #loading-center-absolute {
   position: absolute;
   left: 50%;
@@ -33,6 +35,7 @@
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 .object {
   width: 20px;
   height: 20px;
@@ -44,51 +47,60 @@
   -webkit-border-radius: 50% 50% 50% 50%;
   border-radius: 50% 50% 50% 50%;
 }
+
 .object:nth-child(2n + 0) {
   margin-right: 0px;
 }
+
 #object_one {
   -webkit-animation: object_one 2s infinite;
   animation: object_one 2s infinite;
   -webkit-animation-delay: 0.2s;
   animation-delay: 0.2s;
 }
+
 #object_two {
   -webkit-animation: object_two 2s infinite;
   animation: object_two 2s infinite;
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
+
 #object_three {
   -webkit-animation: object_three 2s infinite;
   animation: object_three 2s infinite;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
+
 #object_four {
   -webkit-animation: object_four 2s infinite;
   animation: object_four 2s infinite;
   -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
+
 #object_five {
   -webkit-animation: object_five 2s infinite;
   animation: object_five 2s infinite;
   -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
+
 #object_six {
   -webkit-animation: object_six 2s infinite;
   animation: object_six 2s infinite;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
+
 #object_seven {
   -webkit-animation: object_seven 2s infinite;
   animation: object_seven 2s infinite;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
+
 #object_eight {
   -webkit-animation: object_eight 2s infinite;
   animation: object_eight 2s infinite;
@@ -272,7 +284,7 @@ a img {
   border: none;
 }
 
-a > img {
+a>img {
   vertical-align: bottom;
 }
 
@@ -323,6 +335,7 @@ hr {
   color: #f09c4d;
 }
 
+
 .through {
   text-decoration: line-through;
 }
@@ -337,9 +350,28 @@ textarea {
   align-content: center;
   text-decoration-color: #fff;
 }
-button:hover { 
+
+button:hover {
   background-color: #f09c4d;
 }
+
+.btn {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 21px;
+  background: #f09c4d;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #a3a3a3;
+  text-decoration: none;
+}
+
 input:focus,
 textarea:focus,
 input[type="text"]:focus {
@@ -436,6 +468,7 @@ h1 {
   font-size: 4.5rem;
   width: 100%;
 }
+
 @media (min-width: 300px) {
   h1 {
     font-size: 1.4rem;
@@ -972,7 +1005,7 @@ nav#menu #menu-nav li a:hover {
   cursor: pointer;
 }
 
-.item-thumbs a + img {
+.item-thumbs a+img {
   width: 100%;
 }
 
@@ -1332,12 +1365,15 @@ footer .credits {
 .soc-linkedin:before {
   content: "\e049";
 }
+
 .soc-twitter:before {
   content: "\e040";
 }
+
 .soc-github:before {
   content: "\e030";
 }
+
 .soc-instagram:before {
   content: "\e057";
 }

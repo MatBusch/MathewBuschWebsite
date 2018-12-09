@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>National Geographic</title>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="bodymovin.js"> </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+
+  <!---   CSS FOR MY INFO VIS && LINKS'  ---->
+  <style type="text/css">
+    #NavLogo {
+      background-repeat: no-repeat;
+    }
+
+    .tooltip-text {
+      font-size: 12px;
+      padding: 5px;
+      margin: 0;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    #bodymovin {
+      background-color: #ffff;
+      width: 60%;
+      height: 60%;
+      display: block;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+      margin: auto;
+    }
+
+    .botas_loop_3,
+    .botas_loop_2 {
+      display: none
+    }
+
+    .AnimButton {
+      background-color: #D8BC0D;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s;
+      /* Safari */
+      transition-duration: 0.4s;
+    }
+
+
+    .AnimButton:hover {
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    a {
+      color: #ffcc00;
+    }
+  </style>
+  <!--- REMAINING DOCUMENT CSS ANSD STYLING CAN BE FOOUND IN THE STYLE SHEET --->
+
+</head>
+
+<body class="index">
+
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt" style="background-color: black;">
+      <h1>
+        <a href="index.html">National Geographic</a>
+      </h1>
+      <!--<center> -->
+      <a id="NavLogo" href="#">
+        <center>
+          <img src="images/logo-NatGeo.png" alt="NAT-GEO-LOGO" height="74" width="auto" /> </center>
+      </a>
+      <!--/center-->
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+      <div>
+        <br>
+        <br>
+      </div>
+
+      <!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+      <div class="inner">
+
+        <header>
+          <h2> Is our water usage
+            <br> Sustainable? </h2>
+        </header>
+        <center>
+          <p>A snapshot of NSW water
+            <br /> usage in Australian
+            <br /> industries
+          </p>
+        </center>
+        <footer>
+          <ul class="buttons vertical">
+            <li>
+              <a href="#main" class="button fit scrolly">Tell Me More</a>
+            </li>
+          </ul>
+        </footer>
+
+      </div>
+
+    </section>
+
+    <!-- Main -->
+    <article id="main">
+      <header class="container">
+
+        <br/>
+        <center>
+          <p>
+            With the world's population estimated to be sitting on 7.5 Billion people and rising (Worldometers, 2017) it is important
+            to address future environmental and production issues now. Australia has a relatively small population of 24.5
+            Million people but ranks 53rd out 233 listed countries (Worldometers, 2017) so as a nation we definitely have
+            a role to play in how natural resources are distributed and consumed. Australia uses a total 17,375 GL of water
+            per year (Australian Bureau of Statistics, 2017) and this staggering number is still set to rise. With a growing
+            population the need for water in agriculture also increases. This article will highlight the current water uses
+            in NSW and Australia and why we need to start to determine how to combat the challenges of the future.
+          </p>
+        </center>
+        <br />
+      </header>
+
+
+
+      <!-- One -->
+      <section>
+
+        <div class="8u 12u(narrower)">
+          <header class="major">
+            <center>
+              <h2>NSW WATER CONSUMPTION</strong>
+              </h2>
+              <button id="playButton" class="AnimButton">PLAY</button>
+              <button id="pauseButton" class="AnimButton">PAUSE</button>
+              <button id="stopButton" class="AnimButton">STOP</button>
+
+              <div id="bodymovin"></div>
+
+              <!---  BEGINING OF THE SCRIPT THAT RUNS MY BODYMOVIN FILE
+                  (BODYMOVIN IS A PLUGIN FOR ADOBE AE THAT ALLOWS ME TO EXPORT VIDEO FILES AS
+                  SVG ANIMATIONS AND ALLOWS THEM TO BE RENDERED AS SUCH) --->
+              <script>
+                var anim;
+                var elem = document.getElementById('bodymovin')
+                var animData = {
+                  container: elem,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: false,
+                  rendererSettings: {
+                    progressiveLoad: false
+                  },
+                  path: 'data.json'
+                };
+                //HERE I AM ACCESSING THE ANIMATION ELEMENT AND SETTING EVENT HANDLERS FOR THE BUTTON PRESSES.
+                anim = bodymovin.loadAnimation(animData);
+
+                document.getElementById('playButton').addEventListener("click", function () {
+                  anim.play();
+
+                });
+
+                document.getElementById('pauseButton').addEventListener("click", function () {
+                  anim.pause();
+
+                });
+
+                document.getElementById('stopButton').addEventListener("click", function () {
+                  anim.stop();
+
+                });
+
+              </script>
+              <p> (Figure 1)
+        </div>
+        </center>
+        </header>
+      </section>
+
+
+      <!-- Two -->
+      <section class="container">
+
+
+
+        <section>
+          <center>
+            <p>
+              To determine how we can best make use of our available water we first need to view how it is being used already. Figure 1.
+              shows the water usage across NSW. From the data gathered by the Australian Bureau of Statistics we can see
+              that the amount of water used in agriculture was on the rise from 2011 to 2014 but almost halved in 2015 due
+              to recent advancements in agricultural practices (Australian Bureau of Statistics, 2017). However the amount
+              of water required for agriculture is more substantial than any other industry. This is why it is important
+              to look at how water is being distributed within agriculture.
+            </p>
+          </center>
+        </section>
+
+
+        <section>
+          <div class="8u 12u(narrower)">
+            <header class="major">
+
+              <center>
+                </br>
+                <div id="vis">
+                  <h2>AGRICULTURE USAGE BREAKDOWN</strong>
+                  </h2>
+
+                </div>
+
+
+                <label class="AnimButton">
+                  <input type="checkbox"> Sort by most water usage.</label>
+                </br>
+                <p>(Figure 2)</p>
+
+
+                <script>
+                  // Declaring variables that can potentialy be used outside of a single function.
+                  var dataset, svg, bandScale, heightScale;
+
+
+                  //Loading in my dataset for graph 2.
+                  d3.csv("DATA/VIZ-2.csv", function (d) {
+                    dataset = d;
+                    dataset.forEach(function (d, i) {
+                      d.order = i;
+                    });
+
+                    createChart2();
+                    toggleSort();
+                  })
+
+                  // Function that creates the graph along with Axis and Names.
+                  function createChart2() {
+
+                    svg = d3.select("#vis")
+                      .append("svg");
+                    var rects = svg.append("g");
+                    var backgrounds = svg.append("g");
+                    var index = svg.append("g");
+                    var titles = svg.append("g");
+                    var ticks = svg.append("g");
+
+                    var w = 900, h = 550;
+
+                    svg.attr("width", w)
+                      .attr("height", h)
+                      .attr("color", "blue");
+
+                    var names = dataset.map(function (d) {
+                      return d.Name;
+                    });
+
+                    bandScale = d3.scaleBand()
+                      .domain(names)
+                      .range([0, w])
+                      .padding([0.1]);
+
+                    heightScale = d3.scaleLinear()
+                      .domain([0, 15415])
+                      .range([0, h]);
+
+
+
+                    svg.append("g")
+                      .attr("transform", "translate(0," + (h - 20) + ")")
+                      .call(d3.axisBottom(bandScale).tickFormat(""));
+
+
+                    rects.attr("transform", "translate(10, -50)");
+                    backgrounds.attr("transform", "translate(10, -50)");
+                    index.attr("transform", "translate(10, -50)");
+                    titles.attr("transform", "translate(30, -50)");
+                    ticks.attr("transform", "translate(40, -50)");
+
+                    //draw the SVG bars
+                    rects.selectAll("rect")
+                      .data(dataset)
+                      .enter()
+                      .append("rect")
+                      .attr("class", "rects")
+                      .attr("fill", "#4990E2")
+                      .attr("x", function (d, i) {
+                        return bandScale(d.Name);
+                      })
+                      .attr("y", function (d) {
+                        return h - (heightScale(d.Data) / 2);
+                      })
+                      .attr("width", function (d) {
+                        return bandScale.bandwidth() / 1.3;
+                      })
+
+                      .attr("height", function (d) {
+                        return heightScale(d.Data) / 2;
+                      });
+
+
+                    titles.selectAll("text")
+                      .data(dataset)
+                      .enter()
+                      .append("text")
+                      .attr("class", "rects")
+                      .attr("fill", "black")
+                      .attr("x", function (d, i) {
+                        return (bandScale(d.Name));
+                      })
+                      .attr("y", function (d) {
+                        return h - (heightScale(d.Data) / 2) + (heightScale(d.Data) / 2) + 47;
+                      })
+                      .text(function (d) {
+                        return d.Name;
+                      })
+                      .style("font-size", 12)
+                      .style("text-anchor", "middle");
+
+                    ticks.selectAll("text")
+                      .data(dataset)
+                      .enter()
+                      .append("text")
+                      .attr("class", "rects")
+                      .attr("fill", "black")
+                      .attr("x", function (d, i) {
+                        return (bandScale(d.Name));
+                      })
+                      .attr("y", function (d) {
+                        return h - (heightScale(d.Data) / 2) - 12;
+                      })
+                      .text(function (d) {
+                        return d.Data;
+                      })
+                      .style("font-size", 12)
+                      .style("text-anchor", "middle");
+
+                    //Drawing the Beaker SVG lines around the bars.
+                    backgrounds.selectAll("polyline")
+                      .data(dataset)
+                      .enter()
+                      .append("polyline")
+                      .attr("class", "poly")
+                      .attr("points", function (d, i) {
+                        var heig = 325;
+                        var tipX = 10;
+                        var tipY = 10;
+                        var rectWidth = (bandScale.bandwidth() / 1.3) + 3;
+                        var rectHeight = heightScale(d.Data) / 2;
+                        var rectX = bandScale(d.Name) - 1.5;
+                        var rectY = h - (heightScale(d.Data) / 2);
+
+
+                        var pointA = rectX - 5 + ", " + (rectY + rectHeight);
+                        var pointB = rectX - 5 + ", " + (rectY + rectHeight + 15);
+                        var pointC = (rectX + rectWidth + 5) + ", " + (rectY + rectHeight + 15);
+                        var pointD = (rectX + rectWidth + 5) + ", " + (rectY + rectHeight);
+
+
+                        var point1 = rectX + ", " + (rectY + rectHeight);
+                        var point2 = (rectX + rectWidth) + ", " + (rectY + rectHeight);
+                        var point3 = (rectX + rectWidth) + ", " + (rectY + rectHeight - heig);
+                        var point4 = (rectX - tipX) + ", " + (rectY + rectHeight - heig);
+                        var point5 = rectX + ", " + (rectY + rectHeight - heig + tipY);
+                        var point6 = rectX + ", " + (rectY + rectHeight);
+                        return pointA + " " + pointB + " " + pointC + " " + pointD + " " + pointA + " " + point1 + " " + point2 + " " + point3 + " " + point4 + " " + point5 + " " + point6;
+                      })
+                      .style("fill", "none")
+                      .style("stroke-width", 3)
+                      .style("stroke", "black");
+
+                    index.selectAll("polyline")
+                      .data(dataset)
+                      .enter()
+                      .append("polyline")
+                      .attr("class", "poly")
+                      .attr("points", function (d, i) {
+                        var heig = 290;
+                        partY = heig / 6;
+                        var xOff = 10;
+                        var yOff = 15;
+                        var wid = 15;
+                        var rectWidth = (bandScale.bandwidth() / 1.3) + 3;
+                        var rectHeight = heightScale(d.Data) / 2;
+                        var rectX = bandScale(d.Name) - 1.5;
+                        var rectY = h - (heightScale(d.Data) / 2);
+                        var point1 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff);
+                        var point2 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff);
+                        var point3 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 1));
+                        var point4 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff - (partY * 1));
+                        var point5 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 1));
+                        var point6 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 2));
+                        var point7 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff - (partY * 2));
+                        var point8 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 2));
+                        var point9 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 3));
+                        var point10 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff - (partY * 3));
+                        var point11 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 3));
+                        var point12 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 4));
+                        var point13 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff - (partY * 4));
+                        var point14 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 4));
+                        var point15 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 5));
+                        var point16 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff - (partY * 5));
+                        var point17 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 5));
+                        var point18 = (rectX + xOff) + ", " + (rectY + rectHeight - yOff - (partY * 6));
+                        var point19 = (rectX + xOff + wid) + ", " + (rectY + rectHeight - yOff - (partY * 6));
+                        return point1 + " " + point2 + " " + point3 + " " + point4 + " " + point5 + " " + point6 + ", " + point7 + ", " + point8 + ", " + point9 + " " + point10 + ", " + point11 + ", " + point12 + ", " + point13 + ", " + point14 + ", " + point15 + ", " + point16 + ", " + point17 + ", " + point18 + ", " + point19;
+                      })
+                      .style("fill", "none")
+                      .style("stroke-width", 3)
+                      .style("stroke", "black");
+
+                  }
+
+                  d3.select("input")
+                    .on("change", toggleSort);
+
+                  // A function that checks if the button is ticked, if
+                  // it is the bars sort in order of most water used to least.
+                  function toggleSort() {
+
+                    var sortComparer;
+
+                    if (this.checked) {
+                      //sort by wins
+                      sortComparer = function (a, b) {
+                        return b.Data - a.Data;
+                      }
+                    } else {
+                      //sort by original order
+                      sortComparer = function (a, b) {
+                        return a.order - b.order;
+                      }
+                    }
+
+                    dataset.sort(sortComparer);
+                    var nameOrder = dataset.map(
+                      function (d) {
+                        return d.Name;
+                      });
+
+                    bandScale.domain(nameOrder);
+
+                    svg.transition()
+                      .selectAll("rect")
+                      .duration("1000")
+                      .attr("x", function (d) {
+                        return bandScale(d.Name);
+                      });
+
+                    svg.transition()
+                      .selectAll("text")
+                      .duration("1000")
+                      .attr("x", function (d) {
+                        return bandScale(d.Name);
+                      });
+
+
+                    var tooltip = d3.select("body").append("div")
+                      .attr("id", "tooltip")
+                      .style("visibility", "hidden")
+                      .style("width", "150px")
+                      // .style("height", "200px")
+                      .style("position", "fixed")
+                      .style("background-color", "white")
+                      .style("border-radius", "5px")
+                      .style("visibility", "hidden");
+
+
+
+                    d3.selectAll(".rects").on("mouseover", function (d, i) {
+                      var mouseX = d3.event.clientX;
+                      var mouseY = d3.event.clientY + 20;
+                      d3.select("#tooltip").style("top", mouseY + "px").style("left", mouseX + "px").style("visibility", "visible").html("<p class=tooltip-text><span class=bold>Name:</span> " + d.Name + "<br/><span class=bold>Water usage:</span> " + d.Data + " " + "L/Kg" + "</p>");
+                    });
+                    d3.selectAll(".rects").on("mouseout", function (d, i) {
+                      d3.select("#tooltip").style("visibility", "hidden");
+                    });
+
+                  }
+
+                </script>
+
+
+
+              </center>
+            </header>
+        </section>
+
+        <section class="container">
+          <section>
+            <center>
+              <p>
+                Figure 2. Depicts how water is distributed to various crops and livestock in Australia. It is important to note how much
+                more water it takes to produce livestock compared to crops but it is also important to determine if better
+                practices could be put in place to reduce any water wastage. One of the challenges primary producers around
+                the world face is the land. Most farming land around the world is not suitable for farming and a lot of water
+                is used to make the land fertile enough (KATZ, 2016). Therefore it is not viable to expand into more land
+                that would require more water usage, instead we need to determine the best way to use to the water and land
+                already available to us.
+
+              </p>
+            </center>
+          </section>
+
+          <section>
+
+            <div class="8u 12u(narrower)">
+              <header class="major">
+                <center>
+                  <h2>WATER USED IN AGRICULTURAL FIELDS</strong>
+                  </h2>
+                </center>
+                <center>
+                  <svg width="640px" height="524px" style="align: center;" viewBox="0 0 1440 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Water" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="Desktop-HD-Copy-6">
+                        <g id="noun_1056520_cc" transform="translate(550.000000, 217.000000)" fill-rule="nonzero" fill="#178491">
+                          <path d="M341.96204,0.330689655 C329.754062,0.330689655 329.754062,19.6684369 317.546084,19.6684369 C305.338106,19.6684369 305.338106,0.330689655 293.130128,0.330689655 C280.929742,0.330689655 280.929742,19.6684369 268.729356,19.6684369 C256.525175,19.6684369 256.525175,0.330689655 244.324789,0.330689655 C232.124403,0.330689655 232.124403,19.6684369 219.927813,19.6684369 C207.731223,19.6684369 207.731223,0.330689655 195.534633,0.330689655 C183.334247,0.330689655 183.334247,19.6684369 171.133861,19.6684369 C158.933476,19.6684369 158.933476,0.330689655 146.73309,0.330689655 C134.5365,0.330689655 134.5365,19.6684369 122.336114,19.6684369 C110.135728,19.6684369 110.135728,0.330689655 97.9353421,0.330689655 C85.7349562,0.330689655 85.7349562,19.6684369 73.5383663,19.6684369 C61.3417765,19.6684369 61.3417765,0.330689655 49.1451866,0.330689655 C36.9485967,0.330689655 36.9485967,19.6684369 24.7520068,19.6684369 C12.551621,19.6684369 12.551621,0.330689655 0.35503109,0.330689655 L0.35503109,48.6731419 L341.996204,48.6731419 L341.96204,0.330689655 Z"
+                            id="Shape"></path>
+                        </g>
+                        <path d="M650.561793,167.889838 L851.313069,131.970558 C887.300487,265.370879 893.217501,365.251488 869.064109,431.612385 C844.910718,497.973282 783.420267,566.083726 684.592757,635.943716 L537.534824,478.428884 L650.561793,167.889838 Z"
+                          id="Polygon" stroke="#979797" fill="#71AAEB" transform="translate(710.574722, 383.957137) rotate(70.000000) translate(-710.574722, -383.957137) "></path>
+                        <path d="M605.528474,331.056372 C731.84294,334.784311 823.101962,351.976244 879.30554,382.63217 C935.509117,413.288096 988.558374,479.367614 1038.45331,580.870723 L1030.92427,770.86691 C978.887599,847.625868 937.1121,896.250777 905.597772,916.741635 C858.32628,947.477922 733.52899,965.837964 688.114484,972.406336 C614.709812,983.02297 523.576618,924.827021 414.7149,797.818486 C494.20151,752.12401 550.545771,697.665308 583.747681,634.44238 C616.949591,571.219452 624.209855,470.090783 605.528474,331.056372 Z"
+                          id="Polygon" stroke="#979797" fill="#005BC4" transform="translate(726.584104, 652.345593) rotate(70.000000) translate(-726.584104, -652.345593) "></path>
+                        <g id="noun_717766_cc" transform="translate(380.000000, 26.000000)">
+                          <g id="Group" transform="translate(0.112709, 0.022213)" fill-rule="nonzero" fill="#168491">
+                            <path d="M345.090154,0.40123315 C350.633268,1.19455527 355.732185,3.87356369 359.525539,7.98569014 C525.092069,187.806734 681.66254,400.945751 681.66254,603.36702 C681.66254,804.907279 530.029615,971.211971 341.291369,971.211971 C152.552175,971.211971 0.920197745,804.907279 0.920197745,603.36702 C0.920197745,400.945751 157.49169,187.806734 323.057199,7.98569014 C328.630237,1.87956241 336.931495,-0.977999489 345.090154,0.40123315 L345.090154,0.40123315 Z M341.291369,61.8365483 C186.234796,234.075562 49.5446508,433.6742 49.5446508,603.36702 C49.5446508,780.763222 181.121448,922.671446 341.291369,922.671446 C501.460317,922.671446 633.038087,780.763222 633.038087,603.36702 C633.038087,433.6742 496.348696,234.075562 341.291369,61.8365483 L341.291369,61.8365483 Z"
+                              id="Shape"></path>
+                          </g>
+                          <text id="63%-WASTE" font-family="AvenirNext-Regular, Avenir Next" font-size="48" font-weight="normal" fill="#FFFFFF">
+                            <tspan x="206.116" y="697">63% WASTE</tspan>
+                          </text>
+                          <text id="37%-USED" font-family="AvenirNext-Regular, Avenir Next" font-size="48" font-weight="normal" fill="#FFFFFF">
+                            <tspan x="224.216" y="372">37% USED</tspan>
+                          </text>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </center>
+                <center>
+                  <p>(Figure 3)</p>
+                </center>
+
+              </header>
+          </section>
+
+          <!-- Two -->
+          <section class="container special">
+
+            <section>
+              <center>
+                <p>
+                  One way science has determined to help the environment is through the use of biofuels. And while the use of biofuels is helping
+                  the green environment the production of biofuel crops uses much more water than crops for consumption.
+                  For example the use of corn for ethanol fuel needs 5678 litres of water to produce 1 litres of ethanol
+                  (UK Biofuels, 2010). For this reason many countries are not investing resources into producing biofuels.
+                  Another issue that agriculture is faced with is water wastage. A study into agricultural water efficiency
+                  found that 63% of water delivered to the field in irrigation is wasted (Wallace, 2000). 63% water wastage
+                  equates to thousands and thousands of litres of water being wasted which could be greatly improved through
+                  innovative science and design.
+
+                </p>
+              </center>
+
+              </br>
+              </br>
+
+              <center>
+                <p>
+                  There are many challenges we must face in the future with a booming population. One of the most pressing issues is water
+                  use and consumption. It is important for us as a global community to determine how we can best use our
+                  current resources and improve agricultural practices for future generations. Water use is not just an issue
+                  for the future population, it is an issue for now. It is our job to determine best practices for the future
+                  through a combination of innovative research, science and design.
+                </p>
+              </center>
+
+              </br>
+              </br>
+
+
+            </section>
+            </br>
+            </br>
+            <center>
+              <p> By: Mathew Busch </p>
+            </center>
+            </div>
+            </header>
+    </article>
+
+    <!-- CTA -->
+    <section id="cta" style="background-color: black;">
+
+      <header>
+        <h2>Check out the
+          <strong>DATA </strong>for yourself!</h2>
+        <center>
+          <p>Links to my data sources before being compiled.</p>
+        </center>
+      </header>
+      <footer>
+        <ul id="refrences-buttons">
+          <li>
+            <a href="http://www.nationalgeographic.com.au/science/as-groundwater-dwindles-a-global-food-shock-looms.aspx" National
+              Geographic </a>
+          </li>
+          <li>
+            <a href="http://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/4610.02014-15?OpenDocument">Australian Bureau of Statistics</a>
+          </li>
+          <li>
+            <a href="http://waterfootprint.org/en/water-footprint/product-water-footprint/water-footprint-crop-and-animal-products/">Water Footprint Network</a>
+          </li>
+          <li>
+            <a href=" http://dx.doi.org/10.2166/wp.2008.054">Fraiture, C., Giordano, M., & Liao, Y. (2008). Biofuels and implications for agricultural water use</a>
+          </li>
+          <li>
+            <a href="http://www.worldometers.info/">Worldometers</a>
+          </li>
+        </ul>
+      </footer>
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <center>
+        <p>
+          <strong>Disclaimer:</strong> This site and its contents are not associated with National Geographic. This site was built
+          for educational purposes only.</p>
+      </center>
+      <ul class="copyright">
+        <li>&copy; DECO3100</li>
+        <li>InfoViz A3:
+          <a href="http://buschproductions.com.au">By: Mathew Busch</a>
+        </li>
+      </ul>
+    </footer>
+
+    </div>
+
+
+
+</body>
+
+</html>
